@@ -44,11 +44,15 @@ RUN set -eux; \
     flutter config --enable-linux-desktop && \
     flutter precache --linux
 
-CMD [ "flutter", "doctor" ]
-
-# Optional quick sanity check
+# Optional: Validate the installation by building a test app
+# Uncomment if you want to verify everything works during build
 # RUN set -eux; \
-#     cd /tmp && \
-#     flutter create --platforms=linux test_linux && \
-#     cd test_linux && \
-#     flutter build linux --release
+#    cd /tmp && \
+#    flutter create --pub --platforms=linux --project-name test_app -t app test_app && \
+#    cd test_app && \
+#    flutter pub get && \
+#    flutter build linux --release && \
+#    cd .. && \
+#    rm -rf test_app
+
+CMD [ "flutter", "doctor" ]
