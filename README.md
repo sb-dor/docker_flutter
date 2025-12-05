@@ -45,6 +45,11 @@ docker build --compress \
     --file ./dockerfiles/flutter_android.dockerfile \
     --build-arg VERSION=local \
     --tag plugfox/flutter:local-android .
+   
+docker build --compress \
+    --file ./dockerfiles/flutter_linux.dockerfile \
+    --build-arg VERSION=stable \
+    --tag plugfox/flutter:local-linux .
 ```
 
 ### How to get shell
